@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emissão de NFS-e</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-section,
+        .nota-section {
+            width: 45%;
+        }
+
+        label,
+        input {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="form-section">
+            <h1>Emissão de Nota Fiscal de Serviço (NFS-e)</h1>
+
+            <form id="nfs-form">
+                <label for="valorVenda">Valor da Venda:</label>
+                <input type="number" id="valorVenda" step="0.01" min="0" required>
+
+                <label for="itens">Itens Vendidos (separe por vírgula):</label>
+                <input type="text" id="itens" required>
+
+                <label for="irpf">Porcentagem do IRPF (%):</label>
+                <input type="number" id="irpf" step="0.01" min="0" required>
+
+                <label for="pis">Porcentagem do PIS (%):</label>
+                <input type="number" id="pis" step="0.01" min="0" required>
+
+                <label for="cofins">Porcentagem do COFINS (%):</label>
+                <input type="number" id="cofins" step="0.01" min="0" required>
+
+                <label for="inss">Porcentagem do INSS (%):</label>
+                <input type="number" id="inss" step="0.01" min="0" required>
+
+                <label for="issqn">Porcentagem do ISSQN (%):</label>
+                <input type="number" id="issqn" step="0.01" min="0" required>
+
+                <button type="button" onclick="gerarNotaFiscal()">Gerar Nota Fiscal</button>
+            </form>
+        </div>
+
+        <div class="nota-section">
+            <h2>Nota Fiscal Gerada</h2>
+            <div id="notaFiscal"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
